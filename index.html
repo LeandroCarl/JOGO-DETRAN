@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Simulador CNH - DETRAN</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TELA INICIAL -->
+    <main id="tela-inicial" class="tela">
+        <div class="card">
+            <h1>Simulador CNH</h1>
+
+            <p>
+                Você está dirigindo e encontra uma placa de
+                <strong>PARE</strong>. O que deve fazer?
+            </p>
+
+            <button onclick="iniciarJogo()">
+                Iniciar
+            </button>
+        </div>
+    </main>
+
+
+    <!-- TELA DO JOGO -->
+    <main id="tela-jogo" class="tela escondido">
+
+        <div class="card">
+
+            <div class="topo">
+                <span>Questão 1/1</span>
+                <span id="pontuacao">Pontos: 0</span>
+            </div>
+
+            <h2>
+                Você se aproxima de uma placa PARE.
+                O que deve fazer?
+            </h2>
+
+
+            <!-- CENÁRIO DA ANIMAÇÃO -->
+            <div id="cenario" class="cenario">
+
+                <div class="ceu"></div>
+
+                <div class="estrada"></div>
+
+                <div class="faixa"></div>
+
+                <!-- PLACA -->
+                <div class="placa">
+                    <div class="placa-pare">
+                        PARE
+                    </div>
+                    <div class="poste"></div>
+                </div>
+
+                <!-- CRUZAMENTO -->
+                <div class="cruzamento"></div>
+
+                <!-- CARRO -->
+                <div id="carro" class="carro">
+                    🚗
+                </div>
+
+                <!-- OUTRO CARRO -->
+                <div id="carro-outro" class="carro-outro">
+                    🚙
+                </div>
+
+                <!-- EXPLOSÃO -->
+                <div id="explosao" class="explosao">
+                    💥
+                </div>
+
+                <!-- FUMAÇA -->
+                <div id="fumaca" class="fumaca">
+                    💨
+                </div>
+
+                <!-- TEXTO DA ANIMAÇÃO -->
+                <div id="mensagem-animacao" class="mensagem-animacao">
+                </div>
+
+            </div>
+
+
+            <!-- ALTERNATIVAS -->
+
+            <div id="alternativas">
+
+                <button
+                    class="alternativa"
+                    onclick="responder(true)"
+                >
+                    Parar completamente antes de prosseguir
+                </button>
+
+                <button
+                    class="alternativa"
+                    onclick="responder(false)"
+                >
+                    Passar rapidamente pela placa
+                </button>
+
+                <button
+                    class="alternativa"
+                    onclick="responder(false)"
+                >
+                    Apenas reduzir a velocidade
+                </button>
+
+                <button
+                    class="alternativa"
+                    onclick="responder(false)"
+                >
+                    Ignorar a placa se não houver veículos
+                </button>
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <div id="feedback" class="feedback escondido">
+
+                <h3 id="resultado"></h3>
+
+                <p id="explicacao"></p>
+
+                <button onclick="finalizar()">
+                    Ver resultado
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- TELA FINAL -->
+
+    <main id="tela-final" class="tela escondido">
+
+        <div class="card">
+
+            <h1>Simulado concluído</h1>
+
+            <p id="resultado-final"></p>
+
+            <button onclick="location.reload()">
+                Jogar novamente
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
